@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+  <title>A1 Store</title>
+
+  <!-- Bootstrap core CSS -->
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+<!-- Additional CSS Files -->
+<link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/templatemo-sixteen.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+<style>
+.navbar {
+    position: relative;
+    transition: .5s;
+    z-index: 999;
+}
+
+.navbar.nav-sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+}
+
+.navbar .navbar-brand {
+    margin: 0;
+    color: #fbaf32;
+    font-size: 45px;
+    line-height: 0px;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    transition: .5s;
+}
+
+.navbar .navbar-brand span {
+    color: #719a0a;
+}
+
+.navbar .navbar-brand:hover {
+    color: #fbaf32;
+}
+
+.navbar .navbar-brand:hover span {
+    color: #fbaf32;
+}
+
+.navbar .navbar-brand img {
+    max-width: 100%;
+    max-height: 40px;
+}
+
+.navbar .dropdown-menu {
+    margin-top: 0;
+    border: 0;
+    border-radius: 0;
+    background: #f8f9fa;
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        position: absolute;
+        width: 100%;
+        padding: 30px 60px;
+        background: transparent !important;
+        z-index: 9;
+    }
+
+    .navbar.nav-sticky {
+        padding: 10px 60px;
+        background: #ffffff !important;
+    }
+
+    .navbar .navbar-brand {
+        color: #fbaf32;
+    }
+
+    .navbar.nav-sticky .navbar-brand {
+        color: #fbaf32;
+    }
+
+    .navbar-light .navbar-nav .nav-link,
+    .navbar-light .navbar-nav .nav-link:focus {
+        padding: 10px 10px 8px 10px;
+        font-family: 'Nunito', sans-serif;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .navbar-light.nav-sticky .navbar-nav .nav-link,
+    .navbar-light.nav-sticky .navbar-nav .nav-link:focus {
+        color: #666666;
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover,
+    .navbar-light .navbar-nav .nav-link.active {
+        color: #fbaf32;
+    }
+
+    .navbar-light.nav-sticky .navbar-nav .nav-link:hover,
+    .navbar-light.nav-sticky .navbar-nav .nav-link.active {
+        color: #fbaf32;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar {
+        padding: 15px;
+        background: #ffffff !important;
+    }
+
+    .navbar .navbar-brand {
+        color: #fbaf32;
+    }
+
+    .navbar .navbar-toggler {
+        border: none;
+        color: #fbaf32;
+        font-size: 20px;
+        padding: 10px;
+        background-color: transparent;
+    }
+
+    .navbar-toggler-icon {
+        background-color: #fbaf32;
+        width: 30px;
+        height: 3px;
+        display: block;
+        border-radius: 1px;
+    }
+
+    .navbar-toggler-icon:before,
+    .navbar-toggler-icon:after {
+        content: '';
+        background-color: #fbaf32;
+        width: 30px;
+        height: 3px;
+        display: block;
+        border-radius: 1px;
+    }
+
+    .navbar .navbar-toggler:hover .navbar-toggler-icon {
+        background-color: #ffcc00;
+    }
+
+    .navbar .navbar-toggler:focus {
+        outline: none;
+    }
+
+    .navbar .navbar-toggler.collapsed .navbar-toggler-icon:before {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navbar .navbar-toggler.collapsed .navbar-toggler-icon:after {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .navbar .navbar-nav {
+        margin-top: 15px;
+    }
+
+    .navbar a.nav-link {
+        padding: 5px;
+        color: #333333;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .navbar .dropdown-menu {
+    border: 1px solid rgba(0, 0, 0, 0.15); /* Add a border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    background-color: #ffffff; /* Background color */
+}
+
+.navbar .dropdown-item {
+    padding: 8px 20px; /* Add padding */
+    color: #333333; /* Text color */
+    font-size: 16px; /* Font size */
+    font-weight: 500; /* Font weight */
+    transition: background-color 0.3s; /* Add a transition for smoother hover effect */
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+    background-color: #f8f9fa; /* Hover background color */
+    color: #333333; /* Hover text color */
+}
+
+
+    .navbar .navbar-collapse {
+        justify-content: flex-end;
+    }
+}
+
+</style>
+
+</head>
+<body style="background-image:url();
+    background-size: cover; background-attachment:fixed;">
+{% block content %}
+{% load cart %}
+<header class="navbar">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <div class="navbar-brand">
+                <h2>A1 <em>Tech</em></h2>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <!-- Include the links from your first template here -->
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                            </svg>
+                            Hi, {{user.username}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart">My Cart
+                            <span class="badge bg-light text-dark">
+                                {{request.session.cart.keys|length}}
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          All
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="/products?categorie=10">All</a></li>
+                          {% for categorie in categories %}
+                          <li><a class="dropdown-item" href="/products?categorie={{categorie.id}}">{{categorie.name}}</a></li>
+                          {% endfor %}
+                      </ul>
+                  </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Log out</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about-us">About</a>
+                    </li>
+                    {% if user.is_authenticated and user.is_staff %}
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'admin:index' %}">Admin Panel</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Banner Section -->
+<section class="banner" style="background-image: url({% static 'assets/images/about-heading.jpg' %});">
+    <div class="banner-content" style="color: gold; text-align: center;">
+        <h1 style="color: gold;">Welcome to A-Tech Store</h1>
+        <p style="color: white;">Find the best deals on a wide range of products!</p>
+        <a href="#" class="btn" style="background-color: gold; color: white; margin-bottom: 20px;">Shop Now</a>
+    </div>        
+</section>
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Latest Products</h2>
+                    <a href="#">View all products <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+
+            {% for product in products %}
+            <div class="col-md-4">
+                <div class="product-item">
+                    <a href="#"><img src="{{ product.image_url.url }}" alt=""></a>
+                    <div class="down-content">
+                        <a href="#"><h4>{{ product.name }}</h4></a>
+                        <h6>${{ product.price }}0</h6>
+                        <p>{{ product.description }}</p>
+                        <p>Total in Stock: {{ product.stock }}</p>
+                        <ul class="stars">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                       
+                    </div>
+
+                    <div class="card-footer row no-gutters" style="background: none; outline: none; border: none; padding: 20px">
+                        {% if product|is_in_cart:request.session.cart %}
+                        <div class="row">
+                            <form action="/products/#{{ product.id }}" method="post" class="col-2">
+                                {% csrf_token %}
+                                <input type="text" value="{{ product.id }}" hidden name="product">
+                                <input type="text" value="True" hidden name="remove">
+                                <button type="submit" class="btn btn-block" style="background: linear-gradient(to right, #FFD700, #FFA500); border-radius: 20px; outline: none; border: none; color: white; font-size: 15px"><i class="fa fa-minus"></i></button>
+                            </form>
+
+                            <div class="text-center col">
+                                {{ product|count:request.session.cart }} in cart
+                            </div>
+
+                            <form action="/products/#{{ product.id }}" method="post" class="col-2">
+                                {% csrf_token %}
+                                <input type="text" value="{{ product.id }}" hidden name="product">
+                                <button type="submit" class="btn btn-block" style="background: linear-gradient(to right, #FFD700, #FFA500); border-radius: 20px; outline: none; border: none; color: white; font-size: 15px"><i class="fa fa-plus"></i></button>
+                            </form>
+                        </div>
+                        {% else %}
+                        <form action="/products/#{{ product.id }}" method="post">
+                            {% csrf_token %}
+                            <input type="text" value="{{ product.id }}" hidden name="product">
+                            <button class="btn btn-primary" style="background: linear-gradient(to right, #FFD700, #FFA500); border-radius: 20px; outline: none; border: none; width: 100%; color: #fff; padding: 10px 20px; font-size: 16px;" type="submit"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inner-content">
+                    <p>Copyright &copy; A1-Tech Store. Developed by <a href="https://edigitalnetwork.tech" target="_blank" style="color:#FFD700;">E-Digital Network</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.4.1/vanilla-tilt.min.js">
+</script>
+
+<script>
+        VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 70,
+            speed: 400,
+            "mouse-event-element":true,
+
+          });
+</script>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'static/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'static/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Additional Scripts -->
+<script src="{% static 'static/assets/js/custom.js' %}"></script>
+<script src="{% static 'static/assets/js/owl.js' %}"></script>
+<script src="{% static 'static/assets/js/slick.js' %}"></script>
+<script src="{% static 'static/assets/js/isotope.js' %}"></script>
+<script src="{% static 'static/assets/js/accordions.js' %}"></script>
+
+<script language="text/Javascript">
+    cleared[0] = cleared[1] = cleared[2] = 0; // set a cleared flag for each field
+    function clearField(t) { //declaring the array outside of the
+        if (!cleared[t.id]) { // function makes it static and global
+            cleared[t.id] = 1; // you could use true and false, but that's more typing
+            t.value = ''; // with more chance of typos
+            t.style.color = '#fff';
+        }
+    }
+</script>
+<!-- Your jQuery script for handling dropdowns -->
+<script type="text/javascript">
+  (function($) { // Begin jQuery
+      $(function() { // DOM ready
+          // If a link has a dropdown, add sub menu toggle.
+          $('nav ul li.dropdown a.nav-link').click(function(e) {
+              $(this).siblings('.dropdown-menu').toggle();
+              // Close one dropdown when selecting another
+              $('.dropdown-menu').not($(this).siblings()).hide();
+              e.stopPropagation();
+          });
+          // Clicking away from dropdown will remove the dropdown class
+          $('html').click(function() {
+              $('.dropdown-menu').hide();
+          });
+          // Toggle open and close nav styles on click
+          $('.navbar-toggler').click(function() {
+              $('nav ul').slideToggle();
+          });
+          // Hamburger to X toggle
+          $('.navbar-toggler').on('click', function() {
+              this.classList.toggle('active');
+          });
+      }); // end DOM ready
+  })(jQuery); // end jQuery
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+</body>
+</html>
