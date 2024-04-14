@@ -2,7 +2,7 @@
 Django==4.2.1
 dj-database-url==2.0.0
 psycopg2==2.9.9
-
+gunicorn==21.2.0
 # Static Files and Assets
 whitenoise==6.4.0
 cloudinary==1.39.1
