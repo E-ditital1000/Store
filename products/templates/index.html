@@ -20,72 +20,71 @@
 </head>
 <body>
 
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <h2>A1 <em>Tech</em></h2>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <!-- Include the links from your first template here -->
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                 class="bi bi-person-circle" viewBox="0 0 16 16">
-                                <path
-                                    d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                <path fill-rule="evenodd"
-                                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                            </svg>
-                            Hi, {{user.username}}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart">My Cart
-                            <span class="badge badge-light">
-                                {{request.session.cart.keys|length}}
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            All
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/products?categorie=10">All</a>
-                            {% for categorie in categories %}
-                            <a class="dropdown-item"
-                               href="/products?categorie={{categorie.id}}">{{categorie.name}}</a>
-                            {% endfor %}
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout">Log out</a>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about-us">About</a>
-                    </li>
-                    {% if user.is_authenticated and user.is_staff %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'admin:index' %}">Admin Panel</a>
-                    </li>
-                    {% endif %}
-                </ul>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <h2>A1 <em>Tech</em></h2>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Include the links from your first template here -->
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd"
+                                          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
+                                Hi, {{user.username}}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart">My Cart
+                                <span class="badge badge-light">
+                                    {{request.session.cart.keys|length}}
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                All
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/products?categorie=10">All</a>
+                                {% for categorie in categories %}
+                                <a class="dropdown-item"
+                                   href="/products?categorie={{categorie.id}}">{{categorie.name}}</a>
+                                {% endfor %}
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Log out</a>
+                        </li>
+                        {% endif %}
+                        
+                        {% if user.is_authenticated and user.is_staff %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin:index' %}">Admin Panel</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
+    
 
 <!-- Banner Section -->
 <section class="banner" style="background-image: url({% static 'assets/images/about-heading.jpg' %});">
