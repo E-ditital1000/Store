@@ -23,8 +23,4 @@ tzdata==2023.3
 docopt==0.6.2
 executing==2.0.1
 matplotlib-inline==0.1.6
-<<<<<<< HEAD
 pillow==10.2.0
-=======
-pillow==10.2.0
->>>>>>> 44af738 (new_update)
