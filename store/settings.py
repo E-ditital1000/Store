@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,10 +40,29 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'accounts',
     'products',
 ]
+
+
+# Cloudinary configuration
+cloudinary.config(
+    cloud_name='dfueppsdg',
+    api_key='616474895267773',
+    api_secret='JN2GsI5yw6_rGf8-dzMW-2MjWoo'
+)
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dfueppsdg',
+    'API_KEY': '616474895267773',
+    'API_SECRET': 'JN2GsI5yw6_rGf8-dzMW-2MjWoo',
+}
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -148,6 +170,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/images/"
 MEDIA_ROOT = BASE_DIR
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
