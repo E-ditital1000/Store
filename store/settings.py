@@ -74,6 +74,34 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+JAZZMIN_SETTINGS = {
+    "site_title": "A1-Tech",
+    "site_header": "Admin Dashboard",
+    "welcome_sign": "Welcome to A1-Tech Store",
+    "show_ui_builder": False,  # Set to True to enable UI Builder
+    "show_apps": True,
+    "icons": {"auth": "fas fa-users", "accounts": "fas fa-wallet", "products": "fas fa-cube"},
+    "related_modal_active": False,
+    "changeform_format": "horizontal_tabs",  # "horizontal_tabs" or "vertical_tabs"
+    "changeform_format_overrides": {
+        "auth.user": "vertical_tabs",
+    },
+    "collapsible_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": [],  # List of app labels to hide
+    "hide_models": [],  # List of model names to hide
+    "related_modal_active": True,  # Enable related modal in change form
+    "custom_css": None,  # URL to custom CSS file
+    "custom_js": None,  # URL to custom JavaScript file
+    "show_language_switcher": False,  # Set to True to enable language switcher
+    "languages": [  # List of languages for the switcher
+        {"code": "en", "name": "English"},
+        {"code": "es", "name": "Spanish"},
+    ],
+}
+
+
 ROOT_URLCONF = 'store.urls'
 
 TEMPLATES = [
@@ -91,6 +119,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'store.wsgi.application'
 
